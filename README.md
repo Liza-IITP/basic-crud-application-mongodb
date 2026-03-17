@@ -1,6 +1,6 @@
 # basic-crud-application-mongodb
 
-A clean MongoDB CRUD chat app with a GitHub-inspired UI.
+A clean MongoDB CRUD chat app .
 
 ## Preview
 
