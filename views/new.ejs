@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <div class="title-stack">
+        <h1>Create Chat</h1>
+        <p>Start a fresh conversation thread.</p>
+      </div>
+      <a class="btn" href="/chats">Back to chats</a>
+    </div>
+
+    <section class="panel form-card">
+      <div class="panel-header">
+        <div class="panel-title">New message</div>
+        <div class="muted">Share something meaningful.</div>
+      </div>
+      <div class="panel-body">
+        <form method="POST" action="/chats" class="form-grid">
+          <div>
+            <label for="from">From</label>
+            <input id="from" name="from" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" placeholder="Write your message here" required></textarea>
+          </div>
+          <div>
+            <label for="to">To</label>
+            <input id="to" name="to" placeholder="Recipient name" required>
+          </div>
+          <div class="inline-actions">
+            <button class="btn btn-success" type="submit">Create chat</button>
+            <a class="btn" href="/chats">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

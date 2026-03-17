@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Chats</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <div class="title-stack">
+        <h1>Chat Board</h1>
+        <p>Track and manage conversations in one place.</p>
+      </div>
+      <a class="btn btn-primary" href="/chats/new">New chat</a>
+    </div>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Chats</div>
+        <div class="muted">Keep conversations tidy and searchable.</div>
+      </div>
+      <div class="panel-body">
+        <div class="stats">
+          <div class="stat">
+            <h4>Total Chats</h4>
+            <p><%= chat.length %></p>
+          </div>
+          <div class="stat">
+            <h4>Last Update</h4>
+            <p><%= chat.length ? chat[chat.length - 1].created_at.toDateString() : 'No chats yet' %></p>
+          </div>
+          <div class="stat">
+            <h4>Status</h4>
+            <p><%= chat.length ? 'Active' : 'Ready' %></p>
+          </div>
+        </div>
+
+        <div class="chat-list">
+          <% for (let c of chat) { %>
+            <div class="chat-card">
+              <div class="chat-header">
+                <div class="chat-title"><%= c.from %> to <%= c.to %></div>
+                <div class="chat-meta"><%= c.created_at.toLocaleTimeString() %> | <%= c.created_at.toDateString() %></div>
+              </div>
+              <div class="chat-message"><%= c.msg %></div>
+              <div class="chat-actions">
+                <form method="GET" action="/chats/<%= c._id %>/edit">
+                  <button class="btn btn-success" type="submit">Edit</button>
+                </form>
+                <form method="POST" action="/chats/<%= c._id %>?_method=DELETE">
+                  <button class="btn btn-danger" type="submit" onclick="return confirm('Delete this chat?')">Delete</button>
+                </form>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

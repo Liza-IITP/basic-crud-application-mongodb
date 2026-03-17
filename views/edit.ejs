@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <div class="title-stack">
+        <h1>Edit Chat</h1>
+        <p>Update your message details.</p>
+      </div>
+      <a class="btn" href="/chats">Back to chats</a>
+    </div>
+
+    <section class="panel form-card">
+      <div class="panel-header">
+        <div class="panel-title">Edit message</div>
+        <div class="muted">Fine-tune the conversation.</div>
+      </div>
+      <div class="panel-body">
+        <form method="POST" action="/chats/<%= required_chat._id %>?_method=PUT" class="form-grid">
+          <div>
+            <label>From</label>
+            <div class="muted"><%= required_chat.from %></div>
+          </div>
+          <div>
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" required><%= required_chat.msg %></textarea>
+          </div>
+          <div>
+            <label>To</label>
+            <div class="muted"><%= required_chat.to %></div>
+          </div>
+          <div class="inline-actions">
+            <button class="btn btn-primary" type="submit">Update chat</button>
+            <a class="btn" href="/chats">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
