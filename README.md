@@ -1,6 +1,6 @@
 # basic-crud-application-mongodb
 
-A clean MongoDB CRUD chat app .
+A clean MongoDB CRUD chat board .
 
 ## Preview
 
